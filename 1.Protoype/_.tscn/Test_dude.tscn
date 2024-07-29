@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://b68wfgq5lc53h"]
+
+[ext_resource type="Script" path="res://_.gd/Test_dude.gd" id="1_fwjr2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_354mk"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_554en"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_6f0xj"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w6psa"]
+radius = 1.0
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_fwjr2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_354mk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_554en")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Hard_Point" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("SphereMesh_6f0xj")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="Node3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("SphereShape3D_w6psa")

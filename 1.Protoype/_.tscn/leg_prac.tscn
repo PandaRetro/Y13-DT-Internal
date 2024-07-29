@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyos4w87xv300"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_olukq"]
+radius = 0.1
+height = 1.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lpu5l"]
+radius = 0.1
+height = 1.0
+
+[node name="leg_prac" type="Node3D"]
+
+[node name="raycasts" type="Node3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="raycasts"]
+target_position = Vector3(0, -2, 0)
+
+[node name="RayCast3D2" type="RayCast3D" parent="raycasts"]
+transform = Transform3D(0.951057, -0.309017, 0, 0.309017, 0.951057, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, -2, 0)
+
+[node name="RayCast3D3" type="RayCast3D" parent="raycasts"]
+transform = Transform3D(0.809017, -0.587785, 0, 0.587785, 0.809017, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, -2, 0)
+
+[node name="RayCast3D4" type="RayCast3D" parent="raycasts"]
+transform = Transform3D(0.587785, -0.809017, 0, 0.809017, 0.587785, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, -2, 0)
+
+[node name="RayCast3D5" type="RayCast3D" parent="raycasts"]
+transform = Transform3D(0.309017, -0.951057, 0, 0.951057, 0.309017, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, -2, 0)
+
+[node name="leg" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="leg"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.5, 0, 0)
+mesh = SubResource("CapsuleMesh_olukq")
+skeleton = NodePath("../..")
+
+[node name="joint" type="Node3D" parent="leg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="leg/joint"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.5, 0, 0)
+mesh = SubResource("CapsuleMesh_lpu5l")
+
+[node name="tip" type="Node3D" parent="leg/joint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
