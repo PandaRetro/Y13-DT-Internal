@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfb5e5becoh43"]
+[gd_scene load_steps=6 format=3 uid="uid://bfb5e5becoh43"]
 
 [ext_resource type="PackedScene" uid="uid://rdq785qj3j83" path="res://_.tscn/Tester.tscn" id="1_oeoo6"]
 [ext_resource type="PackedScene" uid="uid://c5vqk6svfw6u1" path="res://_.tscn/Box.tscn" id="2_2j2jc"]
 [ext_resource type="PackedScene" uid="uid://b68wfgq5lc53h" path="res://_.tscn/Test_dude.tscn" id="2_kw8o0"]
 [ext_resource type="Script" path="res://_.gd/Camera.gd" id="4_xyykv"]
+[ext_resource type="PackedScene" uid="uid://dt3oej4txgn07" path="res://_.tscn/octopus.tscn" id="5_cq356"]
 
 [node name="Main" type="Node3D"]
 
@@ -25,7 +26,11 @@ mass = 5.0
 
 [node name="CharacterBody3D" parent="Entities" instance=ExtResource("2_kw8o0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30516, 0)
+visible = false
 
 [node name="Camera3D" type="Camera3D" parent="Entities"]
 transform = Transform3D(1, 0, 0, 0, 0.809017, 0.587785, 0, -0.587785, 0.809017, 0, 6, 7.5)
 script = ExtResource("4_xyykv")
+
+[node name="Octopus" parent="." instance=ExtResource("5_cq356")]
+transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 0, 2, 0)
