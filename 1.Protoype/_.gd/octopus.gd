@@ -5,25 +5,28 @@ const BONE_LEN = 14.0
 
 @onready var skel = $Armature/Skeleton3D
 var angle
+var other_angle
 var dist = 42.0
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	var list = $Armature/Skeleton3D.find_bone("Bone.003")
 	print(list)
 	print($Armature/Skeleton3D.get_bone_pose_rotation(list))
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
+	
+	
 	if dist < 42 and dist > 0:
-		angle = 2 * acos(BONE_LEN/dist)
+		angle = acos((dist - BONE_LEN) / (2*BONE_LEN))
+		other_angle = angle - (PI/2)
 	else:
 		angle = 0
 
-
-	skel.set_bone_pose_rotation(2, Quaternion(angle/2, 0, 0, 1))
-	skel.set_bone_pose_rotation(3, Quaternion(-angle/2, 0, 0, 1))
-	skel.set_bone_pose_rotation(4, Quaternion(-angle/2, 0, 0, 1))
+	skel.set_bone_pose_rotation(2, Quaternion(lerp(skel.get_bone_pose_rotation(2).x,float(angle),0.3), 0, 0, 1))
+	skel.set_bone_pose_rotation(3, Quaternion(lerp(skel.get_bone_pose_rotation(3).x,float(-angle),0.3), 0, 0, 1))
+	skel.set_bone_pose_rotation(4, Quaternion(lerp(skel.get_bone_pose_rotation(4).x,float(-angle),0.1), 0, 0, 1))
 
 	if Input.is_action_just_pressed("ui_up"):
 		dist += 1
@@ -36,6 +39,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_left"):
 		print(BONE_LEN)
 		print(dist)
-		print(BONE_LEN/dist)
-		print(acos(BONE_LEN/dist))
+		print((dist - BONE_LEN) / (2*BONE_LEN))
+		print(acos((dist - BONE_LEN) / (2*BONE_LEN)))
 		print(angle)
