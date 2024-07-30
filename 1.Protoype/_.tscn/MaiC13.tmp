@@ -29,7 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30516, 0)
 visible = false
 
 [node name="Camera3D" type="Camera3D" parent="Entities"]
-transform = Transform3D(0.866025, 0.293893, -0.404509, 0, 0.809017, 0.587785, 0.5, -0.509037, 0.700629, -4.23514, 6, 7.5)
+transform = Transform3D(1, 0, 0, 0, 0.809017, 0.587785, 0, -0.587785, 0.809017, 0, 6, 7.5)
 script = ExtResource("4_xyykv")
 
 [node name="Octopus" parent="." instance=ExtResource("5_cq356")]
