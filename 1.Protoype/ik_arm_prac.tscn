@@ -18,5 +18,5 @@ script = ExtResource("2_h5dsr")
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="2"]
 
 [node name="Marker3D" type="Marker3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.70399, 10.7984, 8.57753)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.8013, 2.25938, 2.49609)
 top_level = true

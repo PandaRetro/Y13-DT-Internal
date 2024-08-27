@@ -69,9 +69,9 @@ func _process(delta):
 
 			if rot != Quaternion(0, 0, 0, 1):
 				y_dir = Basis(rot).y
-				x_dir = Basis(Quaternion(rot.x, rot.y, rot.x, cos((rot.get_angle() - PI/2) / 2))).y
+				x_dir = Basis(rot.get_axis(), PI/2).y #Basis(Quaternion(rot.x, rot.y, rot.z, cos((rot.get_angle() - PI/2) / 2))).y
 				z_dir = rot.get_axis()
-				trans = Transform3D(Basis(x_dir, y_dir, x_dir).orthonormalized(), cur_pos[i])
+				trans = Transform3D(Basis(x_dir, y_dir, x_dir), cur_pos[i])
 				print(x_dir)
 				print(y_dir)
 				print(z_dir)
