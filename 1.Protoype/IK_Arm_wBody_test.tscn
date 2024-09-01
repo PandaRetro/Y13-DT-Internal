@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3vm1xbcqy7og"]
+[gd_scene load_steps=9 format=3 uid="uid://d3vm1xbcqy7og"]
 
 [ext_resource type="Script" path="res://IK_Arm_wBody_test.gd" id="1_qi30g"]
 [ext_resource type="Script" path="res://SkeletonIK_test.gd" id="2_6u3rg"]
@@ -66,6 +66,8 @@ bind/9/pose = Transform3D(0, -1, 7.54979e-08, 1, 0, 0, 0, 7.54979e-08, 1, 0, -17
 bind/10/name = &"Bone.010"
 bind/10/bone = -1
 bind/10/pose = Transform3D(0, -1, 7.54979e-08, 1, 0, 0, 0, 7.54979e-08, 1, 0, -19.5, 0)
+
+[sub_resource type="Curve3D" id="Curve3D_trnfy"]
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_qi30g")
@@ -170,17 +172,9 @@ root_bone = &"Bone"
 tip_bone = &"Bone.010"
 use_magnet = true
 magnet = Vector3(10, 10, 0)
-target_node = NodePath("../../../../Points/Targets/Marker3D")
+target_node = NodePath("../../../../Points/Targets/Path3D/PathFollow3D/Marker3D")
 min_distance = 1.0
 script = ExtResource("2_6u3rg")
-
-[node name="Tip" type="BoneAttachment3D" parent="Arms/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0232878, -1.76857e-05, -1.77053e-05)
-bone_name = "Bone.010"
-bone_idx = 10
-
-[node name="Node3D" type="Node3D" parent="Arms/Armature/Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -3.5, 0)
 
 [node name="Armature2" type="Node3D" parent="Arms"]
 transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 0, 0, 0)
@@ -274,16 +268,9 @@ root_bone = &"Bone"
 tip_bone = &"Bone.010"
 use_magnet = true
 magnet = Vector3(10, 10, 0)
-target_node = NodePath("../../../../Points/Targets/Marker3D2")
+target_node = NodePath("../../../../Points/Targets/Path3D2/PathFollow3D/Marker3D2")
 min_distance = 1.0
 script = ExtResource("2_6u3rg")
-
-[node name="Tip" type="BoneAttachment3D" parent="Arms/Armature2/Skeleton3D"]
-transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -0.0234196, 2.77902e-09, 0)
-bone_name = "Bone.010"
-bone_idx = 10
-
-[node name="Node3D" type="Node3D" parent="Arms/Armature2/Skeleton3D"]
 
 [node name="Armature3" type="Node3D" parent="Arms"]
 transform = Transform3D(-0.25, 0, -2.18557e-08, 0, 0.25, 0, 2.18557e-08, 0, -0.25, 0, 0, 0)
@@ -377,16 +364,9 @@ root_bone = &"Bone"
 tip_bone = &"Bone.010"
 use_magnet = true
 magnet = Vector3(10, 10, 0)
-target_node = NodePath("../../../../Points/Targets/Marker3D3")
+target_node = NodePath("../../../../Points/Targets/Path3D3/PathFollow3D/Marker3D3")
 min_distance = 1.0
 script = ExtResource("2_6u3rg")
-
-[node name="Tip" type="BoneAttachment3D" parent="Arms/Armature3/Skeleton3D"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.0234196, 2.77902e-09, 0)
-bone_name = "Bone.010"
-bone_idx = 10
-
-[node name="Node3D" type="Node3D" parent="Arms/Armature3/Skeleton3D"]
 
 [node name="Armature4" type="Node3D" parent="Arms"]
 transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 0, 0, 0)
@@ -480,31 +460,44 @@ root_bone = &"Bone"
 tip_bone = &"Bone.010"
 use_magnet = true
 magnet = Vector3(10, 10, 0)
-target_node = NodePath("../../../../Points/Targets/Marker3D4")
+target_node = NodePath("../../../../Points/Targets/Path3D4/PathFollow3D/Marker3D4")
 min_distance = 1.0
 script = ExtResource("2_6u3rg")
-
-[node name="Tip" type="BoneAttachment3D" parent="Arms/Armature4/Skeleton3D"]
-transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -0.0234196, 2.77902e-09, 0)
-bone_name = "Bone.010"
-bone_idx = 10
-
-[node name="Node3D" type="Node3D" parent="Arms/Armature4/Skeleton3D"]
 
 [node name="Points" type="Node3D" parent="."]
 
 [node name="Targets" type="Node" parent="Points"]
 
-[node name="Marker3D" type="Marker3D" parent="Points/Targets"]
+[node name="Path3D" type="Path3D" parent="Points/Targets"]
+curve = SubResource("Curve3D_trnfy")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Points/Targets/Path3D"]
+
+[node name="Marker3D" type="Marker3D" parent="Points/Targets/Path3D/PathFollow3D"]
 top_level = true
 
-[node name="Marker3D2" type="Marker3D" parent="Points/Targets"]
+[node name="Path3D2" type="Path3D" parent="Points/Targets"]
+curve = SubResource("Curve3D_trnfy")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Points/Targets/Path3D2"]
+
+[node name="Marker3D2" type="Marker3D" parent="Points/Targets/Path3D2/PathFollow3D"]
 top_level = true
 
-[node name="Marker3D3" type="Marker3D" parent="Points/Targets"]
+[node name="Path3D3" type="Path3D" parent="Points/Targets"]
+curve = SubResource("Curve3D_trnfy")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Points/Targets/Path3D3"]
+
+[node name="Marker3D3" type="Marker3D" parent="Points/Targets/Path3D3/PathFollow3D"]
 top_level = true
 
-[node name="Marker3D4" type="Marker3D" parent="Points/Targets"]
+[node name="Path3D4" type="Path3D" parent="Points/Targets"]
+curve = SubResource("Curve3D_trnfy")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Points/Targets/Path3D4"]
+
+[node name="Marker3D4" type="Marker3D" parent="Points/Targets/Path3D4/PathFollow3D"]
 top_level = true
 
 [node name="Base" type="Node3D" parent="Points"]
