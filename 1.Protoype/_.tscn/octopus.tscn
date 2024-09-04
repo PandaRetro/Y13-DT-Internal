@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dt3oej4txgn07"]
 
-[ext_resource type="PackedScene" uid="uid://cgt37qy2c5d7c" path="res://_.tscn/Octopus.glb" id="1_itybl"]
+[ext_resource type="PackedScene" uid="uid://cgt37qy2c5d7c" path="res://Octopus.glb" id="1_itybl"]
 [ext_resource type="Script" path="res://_.gd/octopus.gd" id="2_1nic3"]
 
 [node name="Octopus" instance=ExtResource("1_itybl")]

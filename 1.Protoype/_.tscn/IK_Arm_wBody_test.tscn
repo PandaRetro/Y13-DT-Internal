@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://d3vm1xbcqy7og"]
 
-[ext_resource type="Script" path="res://IK_Arm_wBody_test.gd" id="1_qi30g"]
+[ext_resource type="Script" path="res://_.gd/IK_Arm_wBody_test.gd" id="1_qi30g"]
 [ext_resource type="Script" path="res://SkeletonIK_test.gd" id="2_6u3rg"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_78ewk"]
@@ -67,7 +67,8 @@ bind/10/name = &"Bone.010"
 bind/10/bone = -1
 bind/10/pose = Transform3D(0, -1, 7.54979e-08, 1, 0, 0, 0, 7.54979e-08, 1, 0, -19.5, 0)
 
-[sub_resource type="Curve3D" id="Curve3D_trnfy"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_21sun"]
+radius = 0.4
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_qi30g")
@@ -172,7 +173,7 @@ root_bone = &"Bone"
 tip_bone = &"Bone.010"
 use_magnet = true
 magnet = Vector3(10, 10, 0)
-target_node = NodePath("../../../../Points/Targets/Path3D/PathFollow3D/Marker3D")
+target_node = NodePath("../../../../Points/Targets/Marker3D")
 min_distance = 1.0
 script = ExtResource("2_6u3rg")
 
@@ -268,7 +269,7 @@ root_bone = &"Bone"
 tip_bone = &"Bone.010"
 use_magnet = true
 magnet = Vector3(10, 10, 0)
-target_node = NodePath("../../../../Points/Targets/Path3D2/PathFollow3D/Marker3D2")
+target_node = NodePath("../../../../Points/Targets/Marker3D2")
 min_distance = 1.0
 script = ExtResource("2_6u3rg")
 
@@ -364,7 +365,7 @@ root_bone = &"Bone"
 tip_bone = &"Bone.010"
 use_magnet = true
 magnet = Vector3(10, 10, 0)
-target_node = NodePath("../../../../Points/Targets/Path3D3/PathFollow3D/Marker3D3")
+target_node = NodePath("../../../../Points/Targets/Marker3D3")
 min_distance = 1.0
 script = ExtResource("2_6u3rg")
 
@@ -460,7 +461,7 @@ root_bone = &"Bone"
 tip_bone = &"Bone.010"
 use_magnet = true
 magnet = Vector3(10, 10, 0)
-target_node = NodePath("../../../../Points/Targets/Path3D4/PathFollow3D/Marker3D4")
+target_node = NodePath("../../../../Points/Targets/Marker3D4")
 min_distance = 1.0
 script = ExtResource("2_6u3rg")
 
@@ -468,48 +469,48 @@ script = ExtResource("2_6u3rg")
 
 [node name="Targets" type="Node" parent="Points"]
 
-[node name="Path3D" type="Path3D" parent="Points/Targets"]
-curve = SubResource("Curve3D_trnfy")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Points/Targets/Path3D"]
-
-[node name="Marker3D" type="Marker3D" parent="Points/Targets/Path3D/PathFollow3D"]
+[node name="Marker3D" type="Node3D" parent="Points/Targets"]
 top_level = true
 
-[node name="Path3D2" type="Path3D" parent="Points/Targets"]
-curve = SubResource("Curve3D_trnfy")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Points/Targets/Path3D2"]
-
-[node name="Marker3D2" type="Marker3D" parent="Points/Targets/Path3D2/PathFollow3D"]
+[node name="Marker3D2" type="Node3D" parent="Points/Targets"]
 top_level = true
 
-[node name="Path3D3" type="Path3D" parent="Points/Targets"]
-curve = SubResource("Curve3D_trnfy")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Points/Targets/Path3D3"]
-
-[node name="Marker3D3" type="Marker3D" parent="Points/Targets/Path3D3/PathFollow3D"]
+[node name="Marker3D3" type="Node3D" parent="Points/Targets"]
 top_level = true
 
-[node name="Path3D4" type="Path3D" parent="Points/Targets"]
-curve = SubResource("Curve3D_trnfy")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Points/Targets/Path3D4"]
-
-[node name="Marker3D4" type="Marker3D" parent="Points/Targets/Path3D4/PathFollow3D"]
+[node name="Marker3D4" type="Node3D" parent="Points/Targets"]
 top_level = true
 
 [node name="Base" type="Node3D" parent="Points"]
 
-[node name="Marker3D" type="Marker3D" parent="Points/Base"]
+[node name="Marker3D" type="Node3D" parent="Points/Base"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, -2, 0)
 
-[node name="Marker3D2" type="Marker3D" parent="Points/Base"]
+[node name="Area3D" type="Area3D" parent="Points/Base/Marker3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Points/Base/Marker3D/Area3D"]
+shape = SubResource("SphereShape3D_21sun")
+
+[node name="Marker3D2" type="Node3D" parent="Points/Base"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 1.75)
 
-[node name="Marker3D3" type="Marker3D" parent="Points/Base"]
+[node name="Area3D" type="Area3D" parent="Points/Base/Marker3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Points/Base/Marker3D2/Area3D"]
+shape = SubResource("SphereShape3D_21sun")
+
+[node name="Marker3D3" type="Node3D" parent="Points/Base"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, -2, 0)
 
-[node name="Marker3D4" type="Marker3D" parent="Points/Base"]
+[node name="Area3D" type="Area3D" parent="Points/Base/Marker3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Points/Base/Marker3D3/Area3D"]
+shape = SubResource("SphereShape3D_21sun")
+
+[node name="Marker3D4" type="Node3D" parent="Points/Base"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -1.75)
+
+[node name="Area3D" type="Area3D" parent="Points/Base/Marker3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Points/Base/Marker3D4/Area3D"]
+shape = SubResource("SphereShape3D_21sun")

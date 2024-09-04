@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://kvb2m3qhp1uj"]
 
-[ext_resource type="PackedScene" uid="uid://tli8ijs8siuh" path="res://_.tscn/IK_arm_prac.glb" id="1_b14bx"]
+[ext_resource type="PackedScene" uid="uid://tli8ijs8siuh" path="res://IK_arm_prac.glb" id="1_b14bx"]
 [ext_resource type="Script" path="res://SkeletonIK_test.gd" id="2_h5dsr"]
 
 [node name="IK_arm_prac" instance=ExtResource("1_b14bx")]

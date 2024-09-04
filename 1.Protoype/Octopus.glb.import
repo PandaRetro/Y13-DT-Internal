@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://tli8ijs8siuh"
-path="res://.godot/imported/IK_arm_prac.glb-f29518bb5798c0bf4825366928c0915c.scn"
+uid="uid://cgt37qy2c5d7c"
+path="res://.godot/imported/Octopus.glb-7a6abcebec24224ca224b3bc22d50fdd.scn"
 
 [deps]
 
-source_file="res://_.tscn/IK_arm_prac.glb"
-dest_files=["res://.godot/imported/IK_arm_prac.glb-f29518bb5798c0bf4825366928c0915c.scn"]
+source_file="res://Octopus.glb"
+dest_files=["res://.godot/imported/Octopus.glb-7a6abcebec24224ca224b3bc22d50fdd.scn"]
 
 [params]
 
@@ -29,6 +29,12 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Armature/Skeleton3D": {
+"retarget/bone_map": null
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
