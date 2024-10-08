@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://jykicd7fq4vv"]
+
+[ext_resource type="PackedScene" uid="uid://c375qxaebvsm1" path="res://Assets/Arm_1.glb" id="1_yvgv7"]
+[ext_resource type="Script" path="res://Scenes/IK3D.gd" id="2_ot6k0"]
+
+[node name="Arm_1" instance=ExtResource("1_yvgv7")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Cylinder" parent="Armature/Skeleton3D" index="0"]
+extra_cull_margin = 100.0
+
+[node name="SkeletonIK3D" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="1"]
+process_priority = 1
+root_bone = &"Bone"
+tip_bone = &"Bone.003"
+target_node = NodePath("../../../Target")
+script = ExtResource("2_ot6k0")
+
+[node name="Base" type="Node3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.048, -7, 3)
+
+[node name="Target" type="Marker3D" parent="." index="2"]
+transform = Transform3D(0.2, 0, 0, 0, 0, -0.2, 0, 0.2, 0, 0, 0, 0)
+top_level = true

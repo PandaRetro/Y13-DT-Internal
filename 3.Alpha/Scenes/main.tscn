@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://burve8dvsoxse"]
+
+[ext_resource type="PackedScene" uid="uid://bij3etlju0fat" path="res://Scenes/character_body.tscn" id="1_gjv5x"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jbkl2"]
+
+[sub_resource type="Sky" id="Sky_q5sgo"]
+sky_material = SubResource("ProceduralSkyMaterial_jbkl2")
+
+[sub_resource type="Environment" id="Environment_kjqo0"]
+background_mode = 2
+sky = SubResource("Sky_q5sgo")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j7ao1"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_08elk"]
+size = Vector3(5, 1, 5)
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kjqo0")
+
+[node name="Terrain" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D"]
+shape = SubResource("BoxShape3D_j7ao1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/StaticBody3D"]
+mesh = SubResource("BoxMesh_08elk")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.40346, 0.385913, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D2"]
+shape = SubResource("BoxShape3D_j7ao1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/StaticBody3D2"]
+mesh = SubResource("BoxMesh_08elk")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.154695, 3.14761)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D3"]
+shape = SubResource("BoxShape3D_j7ao1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/StaticBody3D3"]
+mesh = SubResource("BoxMesh_08elk")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.06905, 0.699482, 4.26436)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D4"]
+shape = SubResource("BoxShape3D_j7ao1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/StaticBody3D4"]
+mesh = SubResource("BoxMesh_08elk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.847178, 0.439462, 0.298602, 0, -0.562011, 0.82713, 0.53131, -0.700726, -0.476123, 4.77431, 3.51128, -1.22654)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0.95758, 3.12599, 7.73801)
+fov = 88.8173
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_gjv5x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56059, 2.10033, 0.0721951)

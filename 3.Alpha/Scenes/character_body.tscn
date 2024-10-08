@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://bij3etlju0fat"]
+
+[ext_resource type="Script" path="res://Scripts/Character_body.gd" id="1_hryyj"]
+[ext_resource type="PackedScene" uid="uid://jykicd7fq4vv" path="res://Scenes/arm_1.tscn" id="2_k5c2d"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_s5x64"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_dcyat"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_hryyj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_s5x64")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_dcyat")
+
+[node name="Arms" type="Node3D" parent="."]
+
+[node name="Arm_1" parent="Arms" instance=ExtResource("2_k5c2d")]
+
+[node name="Arm_2" parent="Arms" instance=ExtResource("2_k5c2d")]
+transform = Transform3D(0.141421, 0, 0.141421, 0, 0.2, 0, -0.141421, 0, 0.141421, 0, 0, 0)
+
+[node name="Arm_3" parent="Arms" instance=ExtResource("2_k5c2d")]
+transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0, 0, 0)
+
+[node name="Arm_4" parent="Arms" instance=ExtResource("2_k5c2d")]
+transform = Transform3D(-0.141421, 0, 0.141421, 0, 0.2, 0, -0.141421, 0, -0.141421, 0, 0, 0)
+
+[node name="Arm_5" parent="Arms" instance=ExtResource("2_k5c2d")]
+transform = Transform3D(-0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0, 0, 0)
+
+[node name="Arm_6" parent="Arms" instance=ExtResource("2_k5c2d")]
+transform = Transform3D(0.141421, 0, -0.141421, 0, 0.2, 0, 0.141421, 0, 0.141421, 0, 0, 0)
+
+[node name="Arm_7" parent="Arms" instance=ExtResource("2_k5c2d")]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, 0, 0)
+
+[node name="Arm_8" parent="Arms" instance=ExtResource("2_k5c2d")]
+transform = Transform3D(-0.141421, 0, -0.141421, 0, 0.2, 0, 0.141421, 0, -0.141421, 0, 0, 0)
+
+[node name="Points" type="Node3D" parent="."]
+
+[node name="Targets" type="Node" parent="Points"]
+
+[node name="Node3D" type="Node3D" parent="Points/Targets"]
+
+[node name="Node3D2" type="Node3D" parent="Points/Targets"]
+
+[node name="Node3D3" type="Node3D" parent="Points/Targets"]
+
+[node name="Node3D4" type="Node3D" parent="Points/Targets"]
+
+[node name="Node3D5" type="Node3D" parent="Points/Targets"]
+
+[node name="Node3D6" type="Node3D" parent="Points/Targets"]
+
+[node name="Node3D7" type="Node3D" parent="Points/Targets"]
+
+[node name="Node3D8" type="Node3D" parent="Points/Targets"]
+
+[node name="Bases" type="Node3D" parent="Points"]
+
+[node name="Node3D" type="Node3D" parent="Points/Bases"]
+
+[node name="Node3D2" type="Node3D" parent="Points/Bases"]
+
+[node name="Node3D3" type="Node3D" parent="Points/Bases"]
+
+[node name="Node3D4" type="Node3D" parent="Points/Bases"]
+
+[node name="Node3D5" type="Node3D" parent="Points/Bases"]
+
+[node name="Node3D6" type="Node3D" parent="Points/Bases"]
+
+[node name="Node3D7" type="Node3D" parent="Points/Bases"]
+
+[node name="Node3D8" type="Node3D" parent="Points/Bases"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+
+[editable path="Arms/Arm_2"]
+[editable path="Arms/Arm_3"]

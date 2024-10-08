@@ -7,7 +7,8 @@
 radius = 0.75
 height = 1.5
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_nb65x"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_2qmp0"]
+radius = 0.75
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rcebk"]
 
@@ -77,7 +78,7 @@ script = ExtResource("1_qi30g")
 mesh = SubResource("SphereMesh_78ewk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_nb65x")
+shape = SubResource("SphereShape3D_2qmp0")
 
 [node name="Arms" type="Node3D" parent="."]
 
