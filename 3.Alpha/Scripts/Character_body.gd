@@ -66,7 +66,7 @@ func _physics_process(delta):
 			tween.tween_callback(func(): grounded[i] = true)
 
 	#rotation and position for body
-	self.position.y = lerp(self.position.y, (average_points/8) + 1.5, 0.3)
+	self.position.y = lerp(self.position.y, (average_points/8) + 1.25, 0.3)
 	if velocity.length()> 0.1 :
 		self.rotation.y = lerp_angle(self.rotation.y, atan2(velocity.x, velocity.z), 0.05)
 

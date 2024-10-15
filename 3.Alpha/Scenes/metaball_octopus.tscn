@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://ceoe56xbedlio"]
+
+[ext_resource type="PackedScene" uid="uid://dyosy56a26umc" path="res://Assets/Metaball_octopus.glb" id="1_qv054"]
+[ext_resource type="Script" path="res://addons/jigglebones/jigglebone.gd" id="2_djxaj"]
+[ext_resource type="Shader" uid="uid://ddilo7tka5tc3" path="res://Assets/glow_shader.tres" id="2_o5s48"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t78bu"]
+render_priority = 0
+shader = ExtResource("2_o5s48")
+shader_parameter/ColorParameter = Color(1, 1, 0.364706, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5bnq"]
+shading_mode = 0
+albedo_color = Color(0.853227, 0.840588, 0.68812, 1)
+
+[node name="Metaball_octopus" instance=ExtResource("1_qv054")]
+
+[node name="Armature" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Mball_004" parent="Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107845, -0.150346, 0.0868702)
+material_override = SubResource("ShaderMaterial_t78bu")
+surface_material_override/0 = SubResource("StandardMaterial3D_r5bnq")
+
+[node name="Jigglebone" type="Node3D" parent="Armature/Skeleton3D" index="1"]
+transform = Transform3D(-0.225226, -0.974305, -0.00175178, 0.974275, -0.225232, 0.00758855, -0.00778811, 2.42051e-06, 0.99997, -1.79009, 2.44167, -4.68049e-08)
+top_level = true
+script = ExtResource("2_djxaj")
+bone_name = "Bone.001"
+stiffness = 0.2
+forward_axis = 1
+
+[node name="Jigglebone2" type="Node3D" parent="Armature/Skeleton3D" index="2"]
+transform = Transform3D(-0.225232, -0.974305, -3.65992e-05, 0.974305, -0.225232, 0.000119472, -0.000124645, -8.74984e-06, 1, -0.815785, 2.66689, -1)
+top_level = true
+script = ExtResource("2_djxaj")
+bone_name = "Bone.001"
+stiffness = 0.2

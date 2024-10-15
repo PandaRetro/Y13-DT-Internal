@@ -2,44 +2,42 @@
 
 [ext_resource type="Script" path="res://Scripts/Character_body.gd" id="1_hryyj"]
 [ext_resource type="PackedScene" uid="uid://jykicd7fq4vv" path="res://Scenes/arm_1.tscn" id="2_k5c2d"]
+[ext_resource type="PackedScene" uid="uid://ceoe56xbedlio" path="res://Scenes/metaball_octopus.tscn" id="3_7kfih"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_s5x64"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_dcyat"]
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_hryyj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
 shape = SubResource("SphereShape3D_s5x64")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_dcyat")
 
 [node name="Arms" type="Node3D" parent="."]
 
 [node name="Arm_1" parent="Arms" instance=ExtResource("2_k5c2d")]
+transform = Transform3D(0.185437, 0, 0.0749213, 0, 0.2, 0, -0.0749213, 0, 0.185437, 0, 0, 0)
 
 [node name="Arm_2" parent="Arms" instance=ExtResource("2_k5c2d")]
-transform = Transform3D(0.141421, 0, 0.141421, 0, 0.2, 0, -0.141421, 0, 0.141421, 0, 0, 0)
+transform = Transform3D(0.078146, 0, 0.184101, 0, 0.2, 0, -0.184101, 0, 0.078146, 0, 0, 0)
 
 [node name="Arm_3" parent="Arms" instance=ExtResource("2_k5c2d")]
-transform = Transform3D(-8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0, 0, 0)
+transform = Transform3D(-0.0749213, 0, 0.185437, 0, 0.2, 0, -0.185437, 0, -0.0749213, 0, 0, 0)
 
 [node name="Arm_4" parent="Arms" instance=ExtResource("2_k5c2d")]
-transform = Transform3D(-0.141421, 0, 0.141421, 0, 0.2, 0, -0.141421, 0, -0.141421, 0, 0, 0)
+transform = Transform3D(-0.184101, 0, 0.078146, 0, 0.2, 0, -0.078146, 0, -0.184101, 0, 0, 0)
 
 [node name="Arm_5" parent="Arms" instance=ExtResource("2_k5c2d")]
-transform = Transform3D(-0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0, 0, 0)
+transform = Transform3D(-0.185437, 0, -0.0749213, 0, 0.2, 0, 0.0749213, 0, -0.185437, 0, 0, 0)
 
 [node name="Arm_6" parent="Arms" instance=ExtResource("2_k5c2d")]
-transform = Transform3D(0.141421, 0, -0.141421, 0, 0.2, 0, 0.141421, 0, 0.141421, 0, 0, 0)
+transform = Transform3D(0.184101, 0, -0.078146, 0, 0.2, 0, 0.078146, 0, 0.184101, 0, 0, 0)
 
 [node name="Arm_7" parent="Arms" instance=ExtResource("2_k5c2d")]
-transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 0, 0, 0)
+transform = Transform3D(0.0749213, 0, -0.185437, 0, 0.2, 0, 0.185437, 0, 0.0749213, 0, 0, 0)
 
 [node name="Arm_8" parent="Arms" instance=ExtResource("2_k5c2d")]
-transform = Transform3D(-0.141421, 0, -0.141421, 0, 0.2, 0, 0.141421, 0, -0.141421, 0, 0, 0)
+transform = Transform3D(-0.078146, 0, -0.184101, 0, 0.2, 0, 0.184101, 0, -0.078146, 0, 0, 0)
 
 [node name="Points" type="Node3D" parent="."]
 
@@ -79,7 +77,8 @@ transform = Transform3D(-0.141421, 0, -0.141421, 0, 0.2, 0, 0.141421, 0, -0.1414
 
 [node name="Node3D8" type="Node3D" parent="Points/Bases"]
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="Metaball_octopus" parent="." instance=ExtResource("3_7kfih")]
+transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 0, 0, 0.00390059)
 
 [editable path="Arms/Arm_2"]
 [editable path="Arms/Arm_3"]

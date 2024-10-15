@@ -1,21 +1,44 @@
 [gd_scene load_steps=7 format=3 uid="uid://burve8dvsoxse"]
 
 [ext_resource type="PackedScene" uid="uid://bij3etlju0fat" path="res://Scenes/character_body.tscn" id="1_gjv5x"]
+[ext_resource type="PackedScene" uid="uid://drkw6frmh5wec" path="res://Scenes/Base.tscn" id="1_opwm8"]
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_ws33j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jbkl2"]
+sky_top_color = Color(0.0680053, 0.424039, 0.594579, 1)
+sky_horizon_color = Color(0.0921466, 0.230083, 0.516243, 1)
+sky_curve = 0.321532
+sky_cover_modulate = Color(0.11942, 0.528766, 0.541956, 1)
+ground_bottom_color = Color(0.0482609, 0.0116967, 0.419962, 1)
+ground_horizon_color = Color(0.0901961, 0.231373, 0.517647, 1)
+ground_curve = 0.0696442
+sun_angle_max = 0.0
+sun_curve = 1e-05
 
 [sub_resource type="Sky" id="Sky_q5sgo"]
 sky_material = SubResource("ProceduralSkyMaterial_jbkl2")
 
 [sub_resource type="Environment" id="Environment_kjqo0"]
 background_mode = 2
+background_energy_multiplier = 0.4
 sky = SubResource("Sky_q5sgo")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_j7ao1"]
-size = Vector3(5, 1, 5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_08elk"]
-size = Vector3(5, 1, 5)
+glow_enabled = true
+glow_levels/2 = 16.0
+glow_levels/3 = 0.0
+glow_levels/5 = 16.0
+glow_levels/6 = 13.66
+glow_intensity = 8.0
+glow_strength = 2.0
+glow_hdr_scale = 0.45
+glow_hdr_luminance_cap = 256.0
+fog_enabled = true
+fog_light_color = Color(0.0862745, 0.0980392, 0.054902, 1)
+fog_light_energy = 2.0
+fog_sun_scatter = 0.25
+fog_density = 0.1
+fog_sky_affect = 0.6
+fog_height = 4.0
+fog_height_density = 0.5
 
 [node name="Main" type="Node3D"]
 
@@ -24,47 +47,30 @@ environment = SubResource("Environment_kjqo0")
 
 [node name="Terrain" type="Node3D" parent="."]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Terrain"]
+[node name="StaticBody3D5" parent="Terrain" instance=ExtResource("1_opwm8")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D"]
-shape = SubResource("BoxShape3D_j7ao1")
+[node name="StaticBody3D" parent="Terrain" instance=ExtResource("1_opwm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.91022, 0.549591, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/StaticBody3D"]
-mesh = SubResource("BoxMesh_08elk")
+[node name="StaticBody3D2" parent="Terrain" instance=ExtResource("1_opwm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2554, 0.360178, 0)
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.40346, 0.385913, 0)
+[node name="StaticBody3D3" parent="Terrain" instance=ExtResource("1_opwm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.255, 0, -9.62)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D2"]
-shape = SubResource("BoxShape3D_j7ao1")
+[node name="StaticBody3D4" parent="Terrain" instance=ExtResource("1_opwm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.255, 0.311018, -19.4143)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/StaticBody3D2"]
-mesh = SubResource("BoxMesh_08elk")
-
-[node name="StaticBody3D3" type="StaticBody3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.154695, 3.14761)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D3"]
-shape = SubResource("BoxShape3D_j7ao1")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/StaticBody3D3"]
-mesh = SubResource("BoxMesh_08elk")
-
-[node name="StaticBody3D4" type="StaticBody3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.06905, 0.699482, 4.26436)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D4"]
-shape = SubResource("BoxShape3D_j7ao1")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/StaticBody3D4"]
-mesh = SubResource("BoxMesh_08elk")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.847178, 0.439462, 0.298602, 0, -0.562011, 0.82713, 0.53131, -0.700726, -0.476123, 4.77431, 3.51128, -1.22654)
+[node name="StaticBody3D6" parent="Terrain" instance=ExtResource("1_opwm8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5915, 0.311018, -19.4143)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0.95758, 3.12599, 7.73801)
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0.95758, 5.34572, 7.73801)
 fov = 88.8173
+script = ExtResource("1_ws33j")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_gjv5x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56059, 2.10033, 0.0721951)
+[node name="Character" parent="." instance=ExtResource("1_gjv5x")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1.56026, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0231759, 0.999731, 0, -0.999731, 0.0231759, 0, 16.4008, 0)
