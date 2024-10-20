@@ -8,7 +8,7 @@ var new_targ = []
 var grounded = []
 
 const N0_LEGS = 8
-const SPEED = 5.0
+const SPEED = 3.0
 
 
 func _ready():
@@ -45,9 +45,13 @@ func _physics_process(delta):
 			bases[i].global_position = _ray_cast(bases[i].global_position)["position"]
 
 		#checks for movement, and animation
+		#if (bases[i].global_position - cur_targ[i].position).length() > (diff.length() * 0.25) and \
+		#grounded[i - 1] == true and \
+		#grounded[(i + 1) % len(cur_targ)] == true and \
+		#grounded[i] == true:
 		if (bases[i].global_position - cur_targ[i].position).length() > (diff.length() * 0.25) and \
-		grounded[i - 1] == true and \
-		grounded[(i + 1) % len(cur_targ)] == true and \
+		grounded[i - 2] == true and \
+		grounded[(i + 2) % len(cur_targ)] == true and \
 		grounded[i] == true:
 			grounded[i] = false
 			new_targ[i] = (bases[i].global_position + (diff.normalized() * diff.length() * 0.25))
@@ -61,12 +65,13 @@ func _physics_process(delta):
 
 			#animate
 			tween = create_tween()
-			tween.tween_property(cur_targ[i], "position", intermediate, 0.05)
-			tween.tween_property(cur_targ[i], "position", new_targ[i], 0.05)
+			tween.tween_property(cur_targ[i], "position", intermediate, 0.1)
+			tween.tween_property(cur_targ[i], "position", new_targ[i], 0.1)
 			tween.tween_callback(func(): grounded[i] = true)
 
 	#rotation and position for body
-	self.position.y = lerp(self.position.y, (average_points/8) + 1.25, 0.3)
+	self.position.y = lerp(self.position.y, _ray_cast(self.position - Vector3(0, 2, 0))["position"].y + 1.25, 0.1)
+	#self.position.y = lerp(self.position.y, (average_points/8) + 1.25, 0.3)
 	if velocity.length()> 0.1 :
 		self.rotation.y = lerp_angle(self.rotation.y, atan2(velocity.x, velocity.z), 0.05)
 
@@ -77,6 +82,7 @@ func _ray_cast(point):
 	var params = PhysicsRayQueryParameters3D.new()
 	params.from = point + Vector3(0, 2, 0)
 	params.to = point + Vector3(0, -3, 0)
+	params.collision_mask = 2
 	var result = get_world_3d().direct_space_state.intersect_ray(params)
 	return(result)
 

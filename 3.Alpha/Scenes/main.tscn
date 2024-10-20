@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://burve8dvsoxse"]
+[gd_scene load_steps=8 format=3 uid="uid://burve8dvsoxse"]
 
 [ext_resource type="PackedScene" uid="uid://bij3etlju0fat" path="res://Scenes/character_body.tscn" id="1_gjv5x"]
 [ext_resource type="PackedScene" uid="uid://drkw6frmh5wec" path="res://Scenes/Base.tscn" id="1_opwm8"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_ws33j"]
+[ext_resource type="PackedScene" uid="uid://bn68hh4m5ad2p" path="res://Scenes/wall_hole.tscn" id="4_cgxy3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jbkl2"]
 sky_top_color = Color(0.0680053, 0.424039, 0.594579, 1)
@@ -22,12 +23,8 @@ sky_material = SubResource("ProceduralSkyMaterial_jbkl2")
 background_mode = 2
 background_energy_multiplier = 0.4
 sky = SubResource("Sky_q5sgo")
-glow_enabled = true
-glow_levels/2 = 16.0
-glow_levels/3 = 0.0
-glow_levels/5 = 16.0
-glow_levels/6 = 13.66
-glow_intensity = 8.0
+sdfgi_read_sky_light = false
+glow_intensity = 1.0
 glow_strength = 2.0
 glow_hdr_scale = 0.45
 glow_hdr_luminance_cap = 256.0
@@ -39,6 +36,9 @@ fog_density = 0.1
 fog_sky_affect = 0.6
 fog_height = 4.0
 fog_height_density = 0.5
+volumetric_fog_density = 0.002
+volumetric_fog_albedo = Color(0.235294, 1, 1, 1)
+volumetric_fog_emission = Color(0.0294882, 0.266672, 1, 1)
 
 [node name="Main" type="Node3D"]
 
@@ -46,31 +46,59 @@ fog_height_density = 0.5
 environment = SubResource("Environment_kjqo0")
 
 [node name="Terrain" type="Node3D" parent="."]
-
-[node name="StaticBody3D5" parent="Terrain" instance=ExtResource("1_opwm8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="StaticBody3D" parent="Terrain" instance=ExtResource("1_opwm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.91022, 0.549591, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.67492, 0, 1.56072)
 
 [node name="StaticBody3D2" parent="Terrain" instance=ExtResource("1_opwm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2554, 0.360178, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.67492, -0.200584, -13.3702)
 
 [node name="StaticBody3D3" parent="Terrain" instance=ExtResource("1_opwm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.255, 0, -9.62)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.75704, -0.0375078, -22.4478)
 
 [node name="StaticBody3D4" parent="Terrain" instance=ExtResource("1_opwm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.255, 0.311018, -19.4143)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.75704, -0.124231, -31.2176)
+
+[node name="StaticBody3D5" parent="Terrain" instance=ExtResource("1_opwm8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -17.5086, -0.270361, -31.2176)
 
 [node name="StaticBody3D6" parent="Terrain" instance=ExtResource("1_opwm8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5915, 0.311018, -19.4143)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -32.4959, -0.270361, -31.2176)
+
+[node name="StaticBody3D7" parent="Terrain" instance=ExtResource("1_opwm8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -25.9718, -0.0472925, -45.5879)
+
+[node name="StaticBody3D8" parent="Terrain" instance=ExtResource("1_opwm8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -25.9718, -0.245593, -60.5305)
+
+[node name="StaticBody3D9" parent="Terrain" instance=ExtResource("1_opwm8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -26.0114, 0.165112, -75.4697)
+
+[node name="StaticBody3D10" parent="Terrain" instance=ExtResource("1_opwm8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -26.0114, 0.165112, -90.4098)
+
+[node name="StaticBody3D11" parent="Terrain" instance=ExtResource("1_opwm8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -26.0114, -0.0995781, -105.386)
+
+[node name="StaticBody3D12" parent="Terrain" instance=ExtResource("1_opwm8")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -26.0114, -0.0995781, -112.832)
+
+[node name="wall_hole" parent="Terrain" instance=ExtResource("4_cgxy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.12294, 1.17283, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0.95758, 5.34572, 7.73801)
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, -0.465414, 5.34572, 7.87428)
 fov = 88.8173
 script = ExtResource("1_ws33j")
 
 [node name="Character" parent="." instance=ExtResource("1_gjv5x")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1.56026, 0)
+transform = Transform3D(-3.27835e-08, 0, 0.75, 0, 0.75, 0, -0.75, 0, -3.27835e-08, 0, 1.56, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.0231759, 0.999731, 0, -0.999731, 0.0231759, 0, 16.4008, 0)
+[node name="OmniLight3D" type="OmniLight3D" parent="Character"]
+light_color = Color(1, 1, 0.784314, 1)
+light_energy = 16.0
+shadow_enabled = true
+distance_fade_length = 4.85
+omni_range = 10.0
+omni_attenuation = 2.07052

@@ -1,32 +1,43 @@
-[gd_resource type="VisualShader" load_steps=2 format=3 uid="uid://ddilo7tka5tc3"]
+[gd_resource type="VisualShader" load_steps=3 format=3 uid="uid://ddilo7tka5tc3"]
 
-[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_24t5g"]
-output_port_for_preview = 0
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_jor8a"]
 expanded_output_ports = [0]
+parameter_name = "ColorParameter2"
+default_value_enabled = true
+default_value = Color(0.761518, 0.760347, 0.311446, 1)
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_s72ye"]
 parameter_name = "ColorParameter"
 default_value_enabled = true
-default_value = Color(1, 1, 0.215686, 1)
+default_value = Color(0.760784, 0.760784, 0.309804, 1)
 
 [resource]
 code = "shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
 
-uniform vec4 ColorParameter : source_color = vec4(1.000000, 1.000000, 0.215686, 1.000000);
+uniform vec4 ColorParameter : source_color = vec4(0.760784, 0.760784, 0.309804, 1.000000);
+uniform vec4 ColorParameter2 : source_color = vec4(0.761518, 0.760347, 0.311446, 1.000000);
 
 
 
 void fragment() {
-// ColorParameter:3
-	vec4 n_out3p0 = ColorParameter;
+// ColorParameter:5
+	vec4 n_out5p0 = ColorParameter;
+
+
+// ColorParameter:4
+	vec4 n_out4p0 = ColorParameter2;
 
 
 // Output:0
-	ALBEDO = vec3(n_out3p0.xyz);
+	ALBEDO = vec3(n_out5p0.xyz);
+	EMISSION = vec3(n_out4p0.xyz);
 
 
 }
 "
-graph_offset = Vector2(-320.014, -69.2162)
-nodes/fragment/3/node = SubResource("VisualShaderNodeColorParameter_24t5g")
-nodes/fragment/3/position = Vector2(-300, -20)
-nodes/fragment/connections = PackedInt32Array(3, 0, 0, 0)
+nodes/fragment/4/node = SubResource("VisualShaderNodeColorParameter_jor8a")
+nodes/fragment/4/position = Vector2(-300, 420)
+nodes/fragment/5/node = SubResource("VisualShaderNodeColorParameter_s72ye")
+nodes/fragment/5/position = Vector2(-300, 180)
+nodes/fragment/connections = PackedInt32Array(4, 0, 0, 5, 5, 0, 0, 0)

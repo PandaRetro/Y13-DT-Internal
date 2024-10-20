@@ -12,8 +12,11 @@ size = Vector3(10, 1, 10)
 albedo_color = Color(0.129558, 0.129558, 0.129558, 1)
 normal_enabled = true
 normal_texture = ExtResource("1_s26sf")
+uv1_scale = Vector3(2, 2, 2)
+texture_filter = 1
 
 [node name="StaticBody3D" type="StaticBody3D"]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_b8yro")

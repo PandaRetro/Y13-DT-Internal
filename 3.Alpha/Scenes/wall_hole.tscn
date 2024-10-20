@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn68hh4m5ad2p"]
+
+[ext_resource type="PackedScene" uid="uid://b3tbvnh04d51f" path="res://Assets/wall_hole.glb" id="1_vg5l1"]
+[ext_resource type="Texture2D" uid="uid://bkakn5ygvfh10" path="res://Assets/wierd_normal_map.jpg" id="2_y4dvx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0uetx"]
+albedo_color = Color(0.308099, 0.11197, 0.447796, 1)
+albedo_texture = ExtResource("2_y4dvx")
+
+[node name="wall_hole" instance=ExtResource("1_vg5l1")]
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0uetx")
