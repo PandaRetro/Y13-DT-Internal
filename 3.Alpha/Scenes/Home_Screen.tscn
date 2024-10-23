@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://o3e81h5auako"]
+
+[ext_resource type="Script" path="res://Scripts/Home_Screen.gd" id="1_nmftd"]
+[ext_resource type="Texture2D" uid="uid://bk2gqkg0yspp8" path="res://Assets/final title.png" id="1_yvds7"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nmftd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578, 321)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_yvds7")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 346.0
+offset_top = 65.0
+offset_right = -687.0
+offset_bottom = -531.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 505.0
+offset_top = 65.0
+offset_right = -513.0
+offset_bottom = -530.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings
+"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 676.0
+offset_top = 64.0
+offset_right = -331.0
+offset_bottom = -533.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://msot3ntpgm72"]
+
+[ext_resource type="Texture2D" uid="uid://bkakn5ygvfh10" path="res://Assets/wierd_normal_map.jpg" id="1_x0ao0"]
+
+[resource]
+albedo_color = Color(0.129558, 0.129558, 0.129558, 1)
+normal_enabled = true
+normal_texture = ExtResource("1_x0ao0")
+heightmap_enabled = true
+heightmap_scale = 1.0
+uv1_scale = Vector3(3, 3, 3)
+texture_filter = 1

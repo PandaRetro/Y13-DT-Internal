@@ -1,19 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://drkw6frmh5wec"]
+[gd_scene load_steps=4 format=3 uid="uid://drkw6frmh5wec"]
 
-[ext_resource type="Texture2D" uid="uid://bkakn5ygvfh10" path="res://Assets/wierd_normal_map.jpg" id="1_s26sf"]
+[ext_resource type="Material" uid="uid://msot3ntpgm72" path="res://Assets/terrain_texture.tres" id="1_rgai1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b8yro"]
 size = Vector3(10, 1, 10)
 
 [sub_resource type="BoxMesh" id="BoxMesh_tvt4h"]
 size = Vector3(10, 1, 10)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ol31d"]
-albedo_color = Color(0.129558, 0.129558, 0.129558, 1)
-normal_enabled = true
-normal_texture = ExtResource("1_s26sf")
-uv1_scale = Vector3(2, 2, 2)
-texture_filter = 1
 
 [node name="StaticBody3D" type="StaticBody3D"]
 collision_layer = 3
@@ -23,4 +16,4 @@ shape = SubResource("BoxShape3D_b8yro")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_tvt4h")
-surface_material_override/0 = SubResource("StandardMaterial3D_ol31d")
+surface_material_override/0 = ExtResource("1_rgai1")

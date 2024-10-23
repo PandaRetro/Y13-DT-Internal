@@ -37,7 +37,7 @@ cast_shadow = 0
 mesh = SubResource("ArrayMesh_2hnxk")
 
 [node name="Jigglebone" type="Node3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(-0.346079, -0.938205, -0.000806438, 0.938203, -0.34608, 0.00182228, -0.00198876, -0.000125951, 0.999998, -1.70297, 2.20547, -5.48779e-07)
+transform = Transform3D(-0.196863, -0.98043, 0.00098076, 0.980416, -0.196866, -0.00527915, 0.00536891, -7.77181e-05, 0.999986, -1.80152, 2.49856, 6.96562e-08)
 top_level = true
 script = ExtResource("2_djxaj")
 bone_name = "Bone.001"
@@ -45,7 +45,7 @@ stiffness = 0.2
 forward_axis = 1
 
 [node name="Jigglebone2" type="Node3D" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(-0.287352, -0.944122, 0.161436, 0.957577, -0.279332, 0.0708508, -0.0217974, 0.174947, 0.984337, -1.12887, 2.51748, -0.937898)
+transform = Transform3D(-0.211147, -0.976787, -0.0360938, 0.977407, -0.210633, -0.0175509, 0.00954097, -0.0389842, 0.999194, -0.743403, 2.70144, -0.996779)
 top_level = true
 script = ExtResource("2_djxaj")
 bone_name = "Bone.001"

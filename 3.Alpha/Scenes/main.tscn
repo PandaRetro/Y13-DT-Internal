@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://burve8dvsoxse"]
+[gd_scene load_steps=9 format=3 uid="uid://burve8dvsoxse"]
 
 [ext_resource type="PackedScene" uid="uid://bij3etlju0fat" path="res://Scenes/character_body.tscn" id="1_gjv5x"]
 [ext_resource type="PackedScene" uid="uid://drkw6frmh5wec" path="res://Scenes/Base.tscn" id="1_opwm8"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="1_ws33j"]
-[ext_resource type="PackedScene" uid="uid://bn68hh4m5ad2p" path="res://Scenes/wall_hole.tscn" id="4_cgxy3"]
+[ext_resource type="ArrayMesh" uid="uid://bryimt5bsx0ev" path="res://Assets/wall_hole.obj" id="2_y3knt"]
+[ext_resource type="Material" uid="uid://msot3ntpgm72" path="res://Assets/terrain_texture.tres" id="3_60d6w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jbkl2"]
 sky_top_color = Color(0.0680053, 0.424039, 0.594579, 1)
@@ -52,53 +53,58 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.67492, 0, 1.56072)
 
 [node name="StaticBody3D2" parent="Terrain" instance=ExtResource("1_opwm8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.67492, -0.200584, -13.3702)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.675, 0, -13.37)
 
 [node name="StaticBody3D3" parent="Terrain" instance=ExtResource("1_opwm8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.75704, -0.0375078, -22.4478)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.757, 0, -22.448)
 
 [node name="StaticBody3D4" parent="Terrain" instance=ExtResource("1_opwm8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.75704, -0.124231, -31.2176)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.757, 0, -31.218)
 
 [node name="StaticBody3D5" parent="Terrain" instance=ExtResource("1_opwm8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -17.5086, -0.270361, -31.2176)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -17.509, 0, -31.218)
 
 [node name="StaticBody3D6" parent="Terrain" instance=ExtResource("1_opwm8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -32.4959, -0.270361, -31.2176)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -32.496, 0, -31.218)
 
 [node name="StaticBody3D7" parent="Terrain" instance=ExtResource("1_opwm8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -25.9718, -0.0472925, -45.5879)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -25.972, 0, -45.588)
 
 [node name="StaticBody3D8" parent="Terrain" instance=ExtResource("1_opwm8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -25.9718, -0.245593, -60.5305)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -25.972, 0, -60.53)
 
 [node name="StaticBody3D9" parent="Terrain" instance=ExtResource("1_opwm8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -26.0114, 0.165112, -75.4697)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -26.011, 0, -75.47)
 
 [node name="StaticBody3D10" parent="Terrain" instance=ExtResource("1_opwm8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -26.0114, 0.165112, -90.4098)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -26.011, 0, -90.41)
 
 [node name="StaticBody3D11" parent="Terrain" instance=ExtResource("1_opwm8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -26.0114, -0.0995781, -105.386)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -26.011, 0, -105.386)
 
 [node name="StaticBody3D12" parent="Terrain" instance=ExtResource("1_opwm8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -26.0114, -0.0995781, -112.832)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -26.011, 0, -112.832)
 
-[node name="wall_hole" parent="Terrain" instance=ExtResource("4_cgxy3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.12294, 1.17283, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.24455, 1.57969, 4.04092e-07)
+mesh = ExtResource("2_y3knt")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_60d6w")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, -0.465414, 5.34572, 7.87428)
+current = true
 fov = 88.8173
 script = ExtResource("1_ws33j")
 
 [node name="Character" parent="." instance=ExtResource("1_gjv5x")]
-transform = Transform3D(-3.27835e-08, 0, 0.75, 0, 0.75, 0, -0.75, 0, -3.27835e-08, 0, 1.56, 0)
+transform = Transform3D(-3.27835e-08, 0, 0.75, 0, 0.75, 0, -0.75, 0, -3.27835e-08, 0, 1.508, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Character"]
+transform = Transform3D(1.33333, 0, 1.42109e-14, 0, 1.33333, 0, -1.42109e-14, 0, 1.33333, 0, 0, 0)
 light_color = Color(1, 1, 0.784314, 1)
 light_energy = 16.0
 shadow_enabled = true
 distance_fade_length = 4.85
 omni_range = 10.0
-omni_attenuation = 2.07052
+omni_attenuation = 1.41421
