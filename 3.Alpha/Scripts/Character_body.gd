@@ -3,7 +3,6 @@ extends CharacterBody3D
 var save_path = "user://variable.save"
 
 var self_position
-var ray_casts
 var tween
 var average_points
 var bases = []
@@ -16,6 +15,7 @@ const SPEED = 3.0
 
 
 func _ready():
+	_load_data()
 	for i in range(N0_LEGS):
 		var arm = $Arms.get_children()[i]
 		bases.append(arm.get_child(1))
@@ -32,7 +32,6 @@ func _physics_process(delta):
 	if direction and _ray_cast(direction.normalized() + self.position):
 		velocity.z = direction.z * SPEED
 		velocity.x = direction.x * SPEED
-		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
@@ -78,6 +77,10 @@ func _physics_process(delta):
 		self.rotation.y = lerp_angle(self.rotation.y, atan2(velocity.x, velocity.z), 0.05)
 
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("ui_escape"):
+		_save()
+		get_tree().change_scene_to_file("res://Scenes/Home_Screen.tscn")
 
 
 func _ray_cast(point):
@@ -89,13 +92,14 @@ func _ray_cast(point):
 	return(result)
 
 func _save():
-	self_position = self.position
+	print(self.global_transform.origin)
+	self_position = self.global_transform.origin
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	file.store_var(self_position)
 	
 func _load_data():
 	if FileAccess.file_exists(save_path):
 		var file = FileAccess.open(save_path, FileAccess.READ)
-		self.position = file.get_var(self_position)
+		self.global_transform.origin = file.get_var()
 	else:
-		self.postion = Vector3(0, 1.5, 0)
+		self.global_transform.origin = Vector3(0, 1.5, 0)
