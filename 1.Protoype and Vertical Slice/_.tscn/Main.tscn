@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfb5e5becoh43"]
+[gd_scene load_steps=6 format=3 uid="uid://bfb5e5becoh43"]
 
 [ext_resource type="PackedScene" uid="uid://rdq785qj3j83" path="res://_.tscn/Tester.tscn" id="1_oeoo6"]
 [ext_resource type="PackedScene" uid="uid://c5vqk6svfw6u1" path="res://_.tscn/Box.tscn" id="2_2j2jc"]
 [ext_resource type="Script" path="res://_.gd/Camera.gd" id="4_xyykv"]
+[ext_resource type="PackedScene" uid="uid://b68wfgq5lc53h" path="res://_.tscn/Test_dude.tscn" id="5_0x3pr"]
 [ext_resource type="PackedScene" uid="uid://d3vm1xbcqy7og" path="res://_.tscn/IK_Arm_wBody_test.tscn" id="5_4gdl5"]
 
 [node name="Main" type="Node3D"]
@@ -29,3 +30,7 @@ script = ExtResource("4_xyykv")
 
 [node name="CharacterBody3D2" parent="Entities" instance=ExtResource("5_4gdl5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+visible = false
+
+[node name="CharacterBody3D" parent="Entities" instance=ExtResource("5_0x3pr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
