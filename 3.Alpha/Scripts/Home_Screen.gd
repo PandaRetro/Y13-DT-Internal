@@ -1,13 +1,15 @@
 extends Control
 
 
-func _on_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+# Exit game
+func _on_exit_pressed():
+	get_tree().quit()
 
 
-func _on_button_2_pressed():
+func _on_settings_pressed():
 	pass # Replace with function body.
 
 
-func _on_button_3_pressed():
-	get_tree().quit()
+# Load main scene
+func _on_start_pressed():
+	get_tree().change_scene_to_file("res://Scenes/main.tscn")

@@ -65,7 +65,7 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.757, 0, -31.218)
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -17.509, 0, -31.218)
 
 [node name="StaticBody3D6" parent="Terrain" instance=ExtResource("1_opwm8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -32.496, 0, -31.218)
+transform = Transform3D(1.21353, 0, 0.881678, 0, 1.5, 0, -0.881678, 0, 1.21353, -22.5712, -9.53674e-07, -35.6173)
 
 [node name="StaticBody3D7" parent="Terrain" instance=ExtResource("1_opwm8")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -25.972, 0, -45.588)

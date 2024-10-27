@@ -7,8 +7,8 @@ func _ready():
 	char = get_node("/root/Main/Character")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# Follow player and rotate to keep in frame
 	self.position.x = lerp(self.position.x, char.position.x, 0.05)
 	var z = self.position.z - char.position.z
 	var y = self.position.y - char.position.y
